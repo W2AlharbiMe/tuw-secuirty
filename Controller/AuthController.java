@@ -22,7 +22,7 @@ public class AuthController {
     }
 
     @GetMapping("/logout")
-    public ResponseEntity logout() {
-        return ResponseEntity.ok("logged out");
+    public ResponseEntity<ApiResponse> logout() {
+        return ResponseEntity.ok(new ApiResponse("logged out successfully."));
     }
 }
