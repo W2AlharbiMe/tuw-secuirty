@@ -12,10 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -43,11 +40,11 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> list = new ArrayList<>();
+//        another way
+//        List<GrantedAuthority> list = new ArrayList<>();
+//        list.add(new SimpleGrantedAuthority(role));
 
-        list.add(new SimpleGrantedAuthority(role));
-
-        return list;
+        return Collections.singleton(new SimpleGrantedAuthority(role));
     }
 
     @Override
